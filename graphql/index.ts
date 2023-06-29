@@ -1,3 +1,5 @@
+//All the queries and mutations are defined here
+
 export const getUserQuery = `
     query getUser($email:String!){
         user(by:{email:$email}){
