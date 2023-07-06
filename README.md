@@ -16,7 +16,7 @@ Flexibble is a groundbreaking application built using Next.js, TypeScript, Tailw
 1. Clone the repository: `git clone https://github.com/hardiksharma11/Flexibble--Share-your-projects-to-the-world`
 2. Install dependencies: `npm install`
 
-##Usage
+## Usage
 
 1. Start the development server: `npm run dev`
 2. Open your browser and visit `http://localhost:3000` to see the application.
