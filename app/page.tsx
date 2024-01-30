@@ -1,8 +1,11 @@
+"use client"
+
 import { ProjectInterface } from "@/common.types"
 import Categories from "@/components/Categories"
 import LoadMore from "@/components/LoadMore"
 import ProjectCard from "@/components/ProjectCard"
 import { fetchAllProjects } from "@/lib/actions"
+import { useEffect, useState } from "react"
 
 type SearchParams = {
   category?:string | null,
@@ -13,10 +16,20 @@ type Props = {
 }
 
 
-const Home = async ({searchParams:{category}}:Props) => {
-  if(!category) category=""
-  const data = await fetchAllProjects(category)
-  const projectsToDisplay = data;
+const Home = ({searchParams:{category}}:Props) => {
+  
+  const [projectsToDisplay, setProjectsToDisplay] = useState<ProjectInterface[]>([])
+
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      if(!category) category=""
+      const data = await fetchAllProjects(category)
+      setProjectsToDisplay(data);
+      }
+
+    fetchData();
+    
+  },[])
   
 
   if(projectsToDisplay.length === 0){
