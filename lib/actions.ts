@@ -63,7 +63,7 @@ export const fetchAllProjects = async (category?:string | null)=>{
                 category
             })
         });
-        return response.json();
+        return await response.json();
     } catch (error) {
         throw error;
     }
