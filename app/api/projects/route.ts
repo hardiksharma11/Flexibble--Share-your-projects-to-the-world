@@ -15,7 +15,7 @@ export const POST = async (req:Request) => {
 
         return new Response(JSON.stringify(projects),{status:200});
     } catch (error) {
-        return new Response(JSON.stringify({message:"Failed to create user"}),{status:500})
+        return new Response(JSON.stringify({error}),{status:500})
 
     }
 }
