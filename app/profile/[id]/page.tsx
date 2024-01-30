@@ -1,4 +1,4 @@
-import { UserProfile } from '@/common.types'
+import { ProjectInterface, UserProfile } from '@/common.types'
 import ProfilePage from '@/components/ProfilePage'
 import { getUserProjects } from '@/lib/actions'
 import React from 'react'
@@ -9,17 +9,17 @@ type Props={
     }
 }
 
-const UserProfile = async ({params}:Props) => {
+const UserProfilee = async ({params}:Props) => {
 
-    const result = await getUserProjects(params.id,100) as {user:UserProfile}
+    const result = await getUserProjects(params.id,100)
 
-    if(!result?.user) return (
+    if(!result?.project) return (
         <p className='no-result-text'>Failed to fetch user info</p>
     )
 
   return (
-    <ProfilePage user={result?.user} />
+    <ProfilePage user = {result?.project[0].createdBy} projects={result?.project} />
   )
 }
 
-export default UserProfile
+export default UserProfilee

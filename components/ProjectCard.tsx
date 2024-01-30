@@ -14,7 +14,6 @@ type Props = {
 };
 
 const ProjectCard = ({id,image,title,name,avatarUrl,userId}:Props) => {
-
     const [randomLikes, setRandomLikes] = useState(0);
     const [randomViews, setRandomViews] = useState('');
 
