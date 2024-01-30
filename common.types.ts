@@ -16,12 +16,14 @@ export interface ProjectInterface {
     liveSiteUrl: string;
     githubUrl: string;
     category: string;
-    id: string;
+    // id: string;
+    _id: string;
     createdBy: {
       name: string;
       email: string;
       avatarUrl: string;
-      id: string;
+      // id: string;
+      _id: string;
     };
 }
 

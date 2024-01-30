@@ -18,7 +18,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 
     const projectDetails = result?.project;
 
-    const renderLink = () => `/profile/${projectDetails?.createdBy?.id}`
+    const renderLink = () => `/profile/${projectDetails?.createdBy?._id}`
 
     return (
         <Modal>
@@ -52,7 +52,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 
                 {session?.user?.email === projectDetails?.createdBy?.email && (
                     <div className="flex justify-end items-center gap-2">
-                        <ProjectActions projectId={projectDetails?.id}/>
+                        <ProjectActions projectId={projectDetails?._id}/>
                     </div>
                 )}
             </section>

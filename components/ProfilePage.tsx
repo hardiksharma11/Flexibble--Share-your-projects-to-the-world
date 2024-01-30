@@ -5,7 +5,7 @@ import Button from './Button'
 import Link from 'next/link'
 import ProjectCard from './ProjectCard'
 
-const ProfilePage = ({ user }: { user: UserProfile }) => {
+const ProfilePage = ({ user, projects }: { user: UserProfile, projects: Array<ProjectInterface>}) => {
     return (
         <section className='flexCenter flex-col max-w-10xl w-full mx-auto paddings'>
             <section className="flexBetween max-lg:flex-col gap-10 w-full">
@@ -33,9 +33,9 @@ const ProfilePage = ({ user }: { user: UserProfile }) => {
                     </div>
                 </div>
 
-                {user?.projects?.edges?.length > 0 ? (
+                {projects?.length > 0 ? (
                     <Image
-                        src={user?.projects?.edges[0]?.node?.image}
+                        src={projects[0]?.image}
                         alt="project image"
                         width={739}
                         height={554}
@@ -53,10 +53,10 @@ const ProfilePage = ({ user }: { user: UserProfile }) => {
             <section className="flexStart flex-col lg:mt-28 mt-16 w-full">
                 <p  className="w-full text-left text-lg font-semibold">Recent Work</p>
                 <div className="profile_projects">
-                    {user?.projects?.edges?.map(({node}:{node:ProjectInterface})=>(
-                        <ProjectCard 
-                            key={`${node?.id}`}
-                            id={node?.id}
+                    {projects.map((node: ProjectInterface) => (
+                        <ProjectCard
+                            key={`${node?._id}`}
+                            id={node?._id}
                             image={node?.image}
                             title={node?.title}
                             name={user.name}
